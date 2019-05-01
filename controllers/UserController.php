@@ -81,7 +81,7 @@
 		function upload()
 		{
 			//upload image and move image to images folder
-			$target_dir = "public/upload/profile";
+			$target_dir = "public/upload/profile/";
 			$target_file = $target_dir . basename($_FILES["myFile"]["name"]);
 
 			$uploadOk = 1;
