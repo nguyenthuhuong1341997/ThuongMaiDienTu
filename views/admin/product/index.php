@@ -58,6 +58,7 @@
                           	<th>Tên sản phẩm</th>
 					        <th>Mô tả</th>
 					        <th>Giá</th>
+					        <th>Thời trang</th>
 					        <th>Thể loại</th>
 					        <th></th>
                         </tr>
@@ -74,7 +75,8 @@
 				    			<td><?=$value['name']  ?></td>
 						        <td><?=$value['description']  ?></td>
 						        <td><?=$value['price']  ?></td>
-						        <td><?=$value['category_id']  ?></td>
+						        <td><?=$value['parent_name'] ?></td>
+						        <td><?= $value['category_name']  ?></td>
 						        <td>
 									<a data-target="#myModal-<?=$value['id']?>" class="btn btn-info" title="Xem chi tiết sản phẩm" data-toggle="modal" ><i class="fa fa-eye"></i></a>
 									<a href="?mod=admin&act=edit&id=<?= $value['id']?>" class="btn btn-warning" title="Sửa thông tin sản phẩm"><i class="fa fa-edit"></i></a>
@@ -170,9 +172,7 @@
             </div>
           </div>
         </div>
-<script type="text/javascript">
-	var bookqan = <?php echo json_encode($books) ?>
-</script>
+
 <?php 
 	include_once 'views/layout/admin/footer.php';
 	

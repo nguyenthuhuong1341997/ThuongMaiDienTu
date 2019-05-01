@@ -14,7 +14,11 @@
 
 		function list()
 		{
-			$query="SELECT * FROM products ";
+			$query="SELECT products.*, category.name AS category_name, category.parent_name
+					FROM products, (SELECT categories.id, categories.name, parent.name AS parent_name
+						FROM categories, (SELECT categories.id, categories.name from categories WHere categories.parent_id IS NULL) AS parent
+						WHERE categories.parent_id = parent.id) AS category
+					WHERE products.category_id= category.id";
 			$result= $this->product_conn->query($query);
 			$data= array();
 			while ($row= $result->fetch_assoc()) {
