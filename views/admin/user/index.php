@@ -1,23 +1,24 @@
 <?php 
 	include_once 'views/layout/admin/header.php';
 ?>
- <div class="right_col list-book" role="main">
+<!-- page content -->
+        <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
-              <div class="title_left">
-                <h3>Quản Lý Nhân viên</small></h3>
-              </div>
+	            <div class="title_left">
+	                <h3>Quản Lý Nhân Viên</small></h3>
+	            </div>
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button"><i class="fa fa-arrow-circle-right"></i></button>
-                    </span>
-                  </div>
-                </div>
-              </div>
+	            <div class="title_right">
+	                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+	                  <div class="input-group">
+	                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
+	                    <span class="input-group-btn">
+	                      <button class="btn btn-default" type="button"><i class="fa fa-arrow-circle-right"></i></button>
+	                    </span>
+	                  </div>
+	                </div>
+	            </div>
             </div>
 
             <div class="clearfix"></div>
@@ -26,7 +27,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Danh sách nhân viên</small></h2>
+                    <h2>Danh sách Nhân viên</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -49,40 +50,41 @@
                   		<div class="col-md-6">
                   			<a href="?mod=admin&act=user&action=create" class="btn btn-success"><i class="fa fa-plus-circle"></i>Thêm mới</a>
                   		</div>
-                  		
                   	</div>
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                         	<th><input type="checkbox" onclick="toggle(this);" /></th>
                           	<th>ID</th>
-                          	<th>Email</th>
-					        <th>Họ tên</th>
+                          	<th>Họ và tên</th>
+					        <th>Email</th>
+					        <th>Địa chỉ</th>
 					        <th>Số điện thoại</th>
-					        <th></th>
+					        <th>Chức năng</th>
                         </tr>
                       </thead>
 
 
                       <tbody>
-                        <?php foreach ($users as $user) { ?>
+                        <?php for ($i=0; $i <count($users) ; $i++) { ?>
 			    		
 			      		
-					    		<tr id="<?php echo $user['id']; ?>">
-					    		<td><input class="checkbox-working-day" value="<?=$user['id']  ?>" type="checkbox" /></td>
-				    			<td><?=$user['id']  ?></td>
-				    			<td><?=$user['email']  ?></td>
-						        <td><?=$user['username']  ?></td>
-						        <td><?=$user['phone']  ?></td>
+					    	<tr id="<?php echo $users[$i]['id']; ?>">
+					    		<td><input class="checkbox-working-day" value="<?=$users[$i]['id']  ?>" type="checkbox" /></td>
+				    			<td><?=$users[$i]['id']  ?></td>
+				    			<td><?=$users[$i]['username']  ?></td>
+						        <td><?=$users[$i]['email']  ?></td>
+						        <td><?=$users[$i]['address']  ?></td>
+						        <td><?=$users[$i]['phone']  ?></td>
 						        <td>
-									<a data-target="#myModal-<?=$user['id']?>" class="btn btn-info" title="Xem chi tiết nhân viên" data-toggle="modal" ><i class="fa fa-eye"></i></a>
-									<a href="?mod=admin&act=user&action=edit&id=<?= $user['id']?>" class="btn btn-warning" title="Sửa thông tin nhân viên"><i class="fa fa-edit"></i></a>
-									<a href="javascript:;" class="btn btn-danger delete-user" title="Xóa nhân viên"><i class="fa fa-trash-o"></i></a>
+									<a data-target="#myModal-<?=$users[$i]['id']?>" class="btn btn-info" title="Xem chi tiết" data-toggle="modal" ><i class="fa fa-eye"></i></a>
+									<a href="?mod=admin&act=user&action=edit&id=<?= $users[$i]['id']?>" class="btn btn-warning" title="Sửa nhân viên"><i class="fa fa-edit"></i></a>
+									<a href="javascript:;" class="btn btn-danger delete" title="Xóa nhân viên"><i class="fa fa-trash-o"></i></a>
 						        </td>
 					      	</tr>
 			      		
-				      		<div id="myModal-<?=$user['id']?>" class="modal fade" role="dialog">
-								<div class="modal-dialog modal-lg">
+				      		<div id="myModal-<?=$users[$i]['id']?>" class="modal fade" role="dialog">
+								<div class="modal-dialog">
 									<!-- Modal content-->
 									<div class="modal-content">
 										<div class="modal-header">
@@ -91,32 +93,32 @@
 										</div>
 										<div class="modal-body" style="height: 200px;">
 											<div class="col-md-3">
-												<img src="public/image/user.png" alt="" style="width: 170px; height: 170px; border-radius: 50%">
+												<img src="<?php echo $users[$i]['image'] ?>" alt="" style="width: 170px; height: 170px; border-radius: 50%">
 											</div>
 											<div class="col-md-8 col-md-offset-1">
 												<div class="row">
 													<div class="col-md-5"><b>Email</b></div>
-													<div class="col-md-7"><p><?=$user['email']?></p></div>
+													<div class="col-md-7"><p><?=$users[$i]['email']?></p></div>
 												</div>
 												<div class="row">
 													<div class="col-md-5"><b>Họ và tên</b></div>
-													<div class="col-md-7"><p><?=$user['name']?></p></div>
+													<div class="col-md-7"><p><?=$users[$i]['username']?></p></div>
 												</div>
 												<div class="row">
-													<div class="col-md-5"><b>Username</b></div>
-													<div class="col-md-7"><p><?=$user['username']?></p></div>
+													<div class="col-md-5"><b>Địa chỉ</b></div>
+													<div class="col-md-7"><p><?=$users[$i]['address']?></p></div>
 												</div>	
 												<div class="row">
 													<div class="col-md-5"><b>Điện thoại</b></div>
-													<div class="col-md-7"><p><?=$user['phone']?></p></div>
+													<div class="col-md-7"><p><?=$users[$i]['phone']?></p></div>
 												</div>
 												<div class="row">
-													<div class="col-md-5"><b>Chức vụ</b></div>
-													<div class="col-md-7"><p><?=$user['role_name']?></p></div>
+													<div class="col-md-5"><b>Ngày sinh</b></div>
+													<div class="col-md-7"><p><?=$users[$i]['birthday']?></p></div>
 												</div>
 												<div class="row">
-													<div class="col-md-5"><b>Chi nhánh</b></div>
-													<div class="col-md-7"><p><?=$user['site_name']?></p></div>
+													<div class="col-md-5"><b>Ngày vào công ty</b></div>
+													<div class="col-md-7"><p><?=$users[$i]['joined_date']?></p></div>
 												</div>										
 											</div>
 										</div>
@@ -125,7 +127,7 @@
 										</div>
 									</div>
 								</div>
-							</div>						
+							</div>					
 						<?php } ?>
                       </tbody>
                     </table>
@@ -136,29 +138,32 @@
             </div>
           </div>
         </div>
-
+        <!-- /page content -->
+		
 <?php 
-	include_once 'views/layout/admin/footer.php';
+ 	include_once 'views/layout/admin/footer.php';
 ?>
-
+<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php 
-	if (isset($_COOKIE['msg3'])) {
-		echo '<script type="text/javascript">toastr.success("Thêm mới thành công");toastr.options.timeOut = 30000;</script>';
-	}
-
-	if (isset($_COOKIE['addUser'])) {
-		echo '<script type="text/javascript">toastr.success("Thêm mới nhân viên thành công");toastr.options.timeOut = 30000;</script>';
-	}
-
-	if (isset($_COOKIE['updateUser'])) {
-		echo '<script type="text/javascript">toastr.success("Sửa thành công");toastr.options.timeOut = 30000;</script>';
+	if (isset($_COOKIE['success'])) {
+		echo '<script type="text/javascript">toastr.info("'.$_COOKIE['success'].'")</script>';
+		// unset($_COOKIE['msg3']);
 	}
 ?>
+<?php 
+	if (isset($_COOKIE['error'])) {
+		echo '<script type="text/javascript">toastr.waring("'.$_COOKIE['error'].'")</script>';
+		// unset($_COOKIE['msg3']);
+	}
+?>
+
 
 <script type="text/javascript">
-	$(".delete-user").click(function(){
+	$(".delete").click(function(){
 		var id = $(this).parents("tr").attr("id");
 		var path = "?mod=admin&act=user&action=delete&id=" + id;
+		console.log(path);
 		swal({
 	        title: "Bạn có muốn xóa không?",
 			icon: "warning",
@@ -172,17 +177,9 @@
 		            url: path,
 		            success: function(res)
 		            {
-		            	var data = JSON.parse(res);
-		            	if(data.status == 'true') {
-		            		toastr.success('Xóa thành công.')
-							var url1 = '?mod=admin&act=user'; 
-							document.location = url1;
-						}else {
-							toastr.error('Xóa không thành công.', 'Lỗi!')
-							toastr.options.timeOut = 3000;
-						}
-		            }
-
+		                console.log(res);
+		                location.reload();
+		            }	              
 	            });
 		  	}
 		});    	
@@ -196,4 +193,5 @@
 	    }
 	};
 
+	
 </script>

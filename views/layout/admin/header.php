@@ -47,7 +47,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="public/image/user.png" alt="..." class="img-circle profile_img">
+                <img src="<?php echo $_SESSION['user']['image'] ?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Xin chào,</span>
@@ -114,7 +114,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="?mod=admin&act=account"> Tài khoản</a></li>
+                    <li><a href="?mod=admin&act=user&action=account"> Tài khoản</a></li>
                     <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>

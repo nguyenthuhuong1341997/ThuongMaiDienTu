@@ -69,11 +69,48 @@
 						case 'store':
 							$user->store();
 							break;
+						case 'edit':{
+							$user->edit();
+							break;
+						}
+						case 'update':{
+							$user->update();
+							break;
+						}
+						case 'delete':
+							$user->delete();
+							break;
+						case 'account':
+							$user->account();
+							break;
+						case 'checkpassword':
+							$user->checkpassword();
+							break;
+						case 'editpassword':
+							$user->editpassword();
+							break;
 						default:
 							# code...
 							break;
 					}
 					break;
+
+				case 'account':{
+					switch ($action) {
+						case 'changeprofile':
+
+							$user->choose();
+							break;
+						case 'upload':
+
+							$user->upload();
+							break;
+						default:
+							# code...
+							break;
+					}
+					break;
+				}
 				default:
 					
 					break;

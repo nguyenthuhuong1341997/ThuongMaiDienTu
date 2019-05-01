@@ -62,14 +62,20 @@
                   				<div class="row">
 
                   					<div class="col-md-3" style="padding-left: 20px;padding-top: 10px;">
-                  						<label>Chức vụ</label>
+                  						<label>Ngày sinh</label>
                   					</div>
                   					<div class="col-md-9">
-                  						<select class="select2_single form-control" tabindex="-1" name="role_id">
-                                <?php foreach ($roles as $role): ?>
-                                  <option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
-                                <?php endforeach ?>
-                              </select>
+                  						<fieldset>
+				                          <div class="control-group">
+				                            <div class="controls">
+				                              <div class="xdisplay_inputx form-group has-feedback">
+				                                <input type="text" class="form-control has-feedback-left" id="single_cal1" placeholder="Ngày sinh" aria-describedby="inputSuccess2Status" name="birthday" required="">
+				                                <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+				                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+				                              </div>
+				                            </div>
+				                          </div>
+				                        </fieldset>
                   					</div>
                   				</div>
 			                </div>
@@ -78,10 +84,10 @@
                   			<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                   				<div class="row">
                   					<div class="col-md-3" style="padding-left: 20px;padding-top: 10px;">
-                  						<label>Username</label>
+                  						<label>Password</label>
                   					</div>
                   					<div class="col-md-9">
-                  						<input type="" class="form-control has-feedback-left" value="" id="username" name="username" required="" placeholder="Username">
+                  						<input type="password" class="form-control has-feedback-left" value="123456" id="password" name="pass" required="">
 			                        	<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                   					</div>
                   				</div>
@@ -89,11 +95,11 @@
                   			<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                   				<div class="row">
                   					<div class="col-md-3" style="padding-left: 20px;padding-top: 10px;">
-                  						<label>Password</label>
+                  						<label>Chức vụ</label>
                   					</div>
                   					<div class="col-md-9">
 
-                  						<input type="password" class="form-control has-feedback-left" placeholder="Nhập vào chức vụ" id="password" name="password" value="123456">
+                  						<input type="text" class="form-control has-feedback-left" placeholder="Nhập vào chức vụ" id="role" name="role" required="">
 			                        	<span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                   					</div>
                   				</div>
@@ -106,7 +112,7 @@
                   						<label>Số điện thoại</label>
                   					</div>
                   					<div class="col-md-9">
-                  						<input type="text" class="form-control has-feedback-left" placeholder="Nhập vào số điện thoại" id="phone_number" name="phone" required="">
+                  						<input type="text" class="form-control has-feedback-left" placeholder="Nhập vào số điện thoại" id="phone_number" name="phone_number" required="">
 			                        	<span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                   					</div>
                   				</div>
@@ -114,22 +120,54 @@
                   			<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                   				<div class="row">
                   					<div class="col-md-3" style="padding-left: 20px;padding-top: 10px;">
-                  						<label>Chi nhánh</label>
+                  						<label>Địa chỉ</label>
                   					</div>
                   					<div class="col-md-9">
-                  						<select class="select2_single form-control" tabindex="-1" name="site_id">
-                                <?php foreach ($sites as $site): ?>
-                                  <option value="<?= $site['id'] ?>"><?= $site['name'] ?></option>
-                                <?php endforeach ?>
-                              </select>
+                  						<input type="text" class="form-control has-feedback-left" placeholder="Nhập vào địa chỉ" name="address" id="address" required="">
+			                        	<span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
                   					</div>
                   				</div>
 			                </div>
                   		</div>
-                  		
+                  		<div class="row">
+                  			<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  				<div class="row">
+                  					<div class="col-md-3" style="padding-left: 20px;padding-top: 10px;">
+                  						<label>Ngày vào công ty</label>
+                  					</div>
+                  					<div class="col-md-9">
+                  						<fieldset>
+				                          <div class="control-group">
+				                            <div class="controls">
+				                              <div class="xdisplay_inputx form-group has-feedback">
+				                                <input type="text" class="form-control has-feedback-left" id="single_cal2" placeholder="Ngày vào công ty" aria-describedby="inputSuccess2Status2" name="joined_date" id="joined_date" required="">
+				                                <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+				                                <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+				                              </div>
+				                            </div>
+				                          </div>
+				                        </fieldset>
+                  					</div>
+                  				</div>
+			                </div>
+                  			<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  				<div class="row">
+                  					<div class="col-md-3" style="padding-left: 20px;padding-top: 10px;">
+                  						<label>Ảnh đại diện</label>
+                  					</div>
+                  					<div class="col-md-9">
+                  						<input type="text" class="form-control has-feedback-left" placeholder="" name="image" value="public/upload/profile/user.png" id="image" >
+			                        	<span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                  					</div>
+                  				</div>
+			                </div>
+                  		</div>
+
+                        
+
                   		<div class="row">
                   			<div class="col-md-2 col-md-offset-5">
-								          <button type="submit" class="btn btn-info ">Thêm mới</button>
+								<button type="submit" class="btn btn-info ">Thêm mới</button>
                   			</div>
                   		</div>
                   	</form>
