@@ -34,7 +34,9 @@
 			include_once('controllers/ProductController.php');
 			$product= new ProductController();
 			include_once('controllers/UserController.php');
-			$user= new UserController();		
+			$user= new UserController();
+			include_once('controllers/OrderController.php');
+			$order= new OrderController();		
 			switch ($act) {
 				case 'product':
 					switch ($action) {
@@ -94,7 +96,34 @@
 							break;
 					}
 					break;
-
+				case 'order':
+					switch ($action) {
+						case '':
+							$order->index();
+							break;
+						case 'create':
+							$order->create();
+							break;
+						case 'store':
+							$order->store();
+							break;
+						case 'confirm':{
+							$order->confirm();
+							break;
+						}
+						case 'update':{
+							$order->update();
+							break;
+						}
+						case 'delete':
+							$order->delete();
+							break;
+						
+						default:
+							# code...
+							break;
+					}
+					break;
 				case 'account':{
 					switch ($action) {
 						case 'changeprofile':

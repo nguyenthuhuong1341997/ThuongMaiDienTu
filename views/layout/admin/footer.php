@@ -56,14 +56,11 @@
     <!-- jQuery Smart Wizard -->
     <script src="public/admin/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script type="text/javascript">
-        $('#wait-order-table').dataTable({
+        $('#datatable-wait-confirm').dataTable({
 
         });
-        $('#order-complete-table').dataTable( {
+        $('#datatable-complete-order').dataTable( {
         } );
-        $('#order-delivery-table').dataTable({
-
-        });
     </script>
     
     <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

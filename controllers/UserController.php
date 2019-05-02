@@ -126,6 +126,8 @@
 
 		function checkpassword()
 		{
+			print_r('sas');
+			die();
 			$password=$_GET['password'];
 			$id=$_GET['id'];
 			$user= $this->user_model->checkpassword($id, $password);
