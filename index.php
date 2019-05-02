@@ -38,23 +38,41 @@
 			switch ($act) {
 				case 'product':
 					switch ($action) {
-						case '':
-							$product->index();
-							break;
 						case 'create':
 							$product->create();
 							break;
 						case 'store':
 							$product->store();
 							break;
-						case 'productAddQuantity':
-							$product->productAddQuantity();
+						case 'detail':
+							$product->detail();
 							break;
-						case 'updateQuantity':
-							$product->updateQuantity();
+						case 'edit':
+							$product->edit();
+							break;
+						case 'update':
+							$product->update();
+							break;
+						case 'delete':
+							$product->delete();
+							break;
+						case 'find_detail':
+							$product->findDetail();
+							break;
+						case 'store_detail':
+							$product->storeDetail();
+							break;	
+						case 'edit_detail':
+							$product->editDetail();
+							break;	
+						case 'update_detail':
+							$product->updateDetail();
+							break;
+						case 'delete_detail':
+							$product->deleteDetail();
 							break;
 						default:
-							# code...
+							$product->index();
 							break;
 					}
 					break;
