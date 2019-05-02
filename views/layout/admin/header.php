@@ -70,7 +70,12 @@
                   <li><a href="?mod=admin&act=product"><i class="fa fa-book"></i> Quản lý sản phẩm </a>
                   </li>
                   <li><a href="?mod=admin&act=order"><i class="fa fa-truck"></i> Quản lý đơn hàng </a></li>
-                  <li><a href="?mod=admin&act=listworkingday"><i class="fa fa-line-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a></li>
+                  <li><a><i class="fa fa-line-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="?mod=admin&act=statistical&action=revenue">Doanh thu theo năm</a></li>
+                      <li><a href="?mod=admin&act=list">Danh sách nhân viên</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
               

@@ -151,34 +151,3 @@
   }
 ?>
 
-<script type="text/javascript">
-    $($this.buttons.next).click(function() {
-            var pass= document.getElementById('first-name').value;
-            var id =document.getElementsByName('id')[0].value;
-            var path="?mod=admin&act=checkpassword&id=" + id+"&password="+pass;
-            
-            if(!pass){
-                alert("fdfgsfd");
-                $('#error1').text('Mời bạn điền mật khẩu');
-                // document.getElementById('error1').value="Không được để trông";
-            }else{
-                console.log(path);
-                $.ajax({
-                    url: path,
-                    success: function(res)
-                    {
-                        var data= JSON.parse(res);
-
-                        if(!data.status){
-                            $('#error1').text('Mật khẩu sai');
-                        }
-                        else{
-                            $this.goForward();
-                            return false;
-                        }
-                    }                 
-                });
-                
-            }
-        });
-</script>

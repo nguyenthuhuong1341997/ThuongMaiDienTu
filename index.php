@@ -36,7 +36,9 @@
 			include_once('controllers/UserController.php');
 			$user= new UserController();
 			include_once('controllers/OrderController.php');
-			$order= new OrderController();		
+			$order= new OrderController();	
+			include_once('controllers/StatisticalController.php');
+			$statiscal= new StatisticalController();	
 			switch ($act) {
 				case 'product':
 					switch ($action) {
@@ -134,12 +136,29 @@
 
 							$user->upload();
 							break;
+						case 'checkpassword':
+							$user->checkpassword();
+							break;
+						case 'editpassword':
+							$user->editpassword();
+							break;
 						default:
 							# code...
 							break;
 					}
 					break;
 				}
+				case 'statistical':
+					switch ($action) {
+						case 'revenue':
+							$statiscal->revenue();
+							break;
+						
+						default:
+							# code...
+							break;
+					}
+					break;
 				default:
 					
 					break;
