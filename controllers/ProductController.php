@@ -51,7 +51,7 @@
 			$data = $_POST;
 			$product = $this->product_model->insert($data);
 			if ($product) {
-				setcookie('addUser','Thêm mới thành công',time()+5);
+				setcookie('success','Thêm mới thành công',time()+5);
 			} 
 			header('Location:?mod=admin&act=product');
 		}
@@ -74,7 +74,7 @@
 
 			$result = $this->product_model->update($data, $id);
 			if ($result) {
-				setcookie('updateUser','Sửa thành công',time()+5);
+				setcookie('success','Sửa thành công',time()+5);
 			} 
 			header('Location:?mod=admin&act=product');
 
@@ -84,6 +84,9 @@
 		{
 			$id=$_GET['id'];
 			$product= $this->product_model->delete($id);
+			if ($product) {
+				setcookie('success','Xóa thành công',time()+5);
+			} 
 			header('Location:?mod=admin&act=product');
 		}
 		public function findDetail()
@@ -100,7 +103,7 @@
 			$product = $this->product_model->insertDetail($data);
 
 			if ($product) {
-				setcookie('addUser','Thêm mới thành công',time()+5);
+				setcookie('success','Thêm mới thành công',time()+5);
 			} 
 			header('Location:?mod=admin&act=product');
 		}
@@ -119,7 +122,7 @@
 
 			$result = $this->product_model->updateDetail($data, $id);
 			if ($result) {
-				setcookie('updateUser','Sửa thành công',time()+5);
+				setcookie('success','Sửa thành công',time()+5);
 			} 
 			header('Location:?mod=admin&act=product');
 		}
@@ -127,6 +130,9 @@
 		{
 			$id=$_GET['id'];
 			$product= $this->product_model->deleteDetail($id);
+			if ($product) {
+				setcookie('success','Xóa thành công',time()+5);
+			} 
 			header('Location:?mod=admin&act=product');
 		}
 	}
