@@ -87,8 +87,18 @@
                   						<label>Chức vụ</label>
                   					</div>
                   					<div class="col-md-9">
-                  						<input type="text" class="form-control has-feedback-left" id="role" name="role" required="" value="<?=$admin['role']?>">
-			                        	<span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                              <select class="select2_single form-control" tabindex="-1" name="role" id="role" >
+                                <?php foreach ($roles as $role): ?>
+                                  <?php if ($role['id']== $admin['role_id']): ?>
+                                    <option selected="true" value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+                                  <?php else: ?>
+                                    <option  value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+                                  <?php endif ?>
+          
+
+                                <?php endforeach ?>
+                              </select>
+                  						
                   					</div>
                   				</div>
 			                </div>
@@ -173,6 +183,6 @@
 <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script type="text/javascript">
 	$('#myDatepicker2').datetimepicker({
-        format: 'DD.MM.YYYY'0
+        format: 'DD.MM.YYYY'
     });
 </script>

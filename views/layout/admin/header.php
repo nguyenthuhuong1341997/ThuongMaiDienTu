@@ -65,19 +65,27 @@
               <div class="menu_section">
                 <h3>Quản lý</h3>
                 <ul class="nav side-menu">
-                  <li><a href="?mod=admin&act=user"><i class="fa fa-users"></i> Quản lý nhân viên</a>
+                  <?php if ($_SESSION['user']['role_name']=='admin'): ?>
+                    <li><a href="?mod=admin&act=user"><i class="fa fa-users"></i> Quản lý nhân viên</a>
                   </li>
+                  <?php endif ?>
+                  
                   <li><a href="?mod=admin&act=customer"><i class="fa fa-users"></i> Quản lý khách hàng</a>
                   </li>
-                  <li><a href="?mod=admin&act=product"><i class="fa fa-book"></i> Quản lý sản phẩm </a>
+                  <?php if ($_SESSION['user']['role_name']=='admin'): ?>
+                    <li><a href="?mod=admin&act=product"><i class="fa fa-book"></i> Quản lý sản phẩm </a>
                   </li>
+                  <?php endif ?>
                   <li><a href="?mod=admin&act=order"><i class="fa fa-truck"></i> Quản lý đơn hàng </a></li>
-                  <li><a><i class="fa fa-line-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
+                  <?php if ($_SESSION['user']['role_name']=='admin'): ?>
+                     <li><a><i class="fa fa-line-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="?mod=admin&act=statistical&action=revenue">Doanh thu theo năm</a></li>
                       <li><a href="?mod=admin&act=list">Danh sách nhân viên</a></li>
                     </ul>
                   </li>
+                  <?php endif ?>
+                 
                 </ul>
               </div>
               

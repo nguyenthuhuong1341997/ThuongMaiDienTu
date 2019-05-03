@@ -98,9 +98,11 @@
                   						<label>Chức vụ</label>
                   					</div>
                   					<div class="col-md-9">
-
-                  						<input type="text" class="form-control has-feedback-left" placeholder="Nhập vào chức vụ" id="role" name="role" required="">
-			                        	<span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                              <select class="select2_single form-control" tabindex="-1" name="role" id="gender">
+                                <?php foreach ($roles as $role): ?>
+                                  <option  value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+                                <?php endforeach ?>
+                              </select>
                   					</div>
                   				</div>
 			                </div>

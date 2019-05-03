@@ -14,7 +14,7 @@
 
 		function list()
 		{
-			$query="SELECT * FROM users WHERE id != ".$_SESSION['user']['id'];
+			$query="SELECT * FROM users WHERE id != ".$_SESSION['user']['id']." ORDER BY id DESC";
 			$result= $this->user_conn->query($query);
 			$data= array();
 			while ($row= $result->fetch_assoc()) {
@@ -34,7 +34,7 @@
 		function insert($data)
 		{
 			
-			$query="INSERT INTO users(username,code,email,password, phone, role, birthday,address,joined_date, image)
+			$query="INSERT INTO users(username,code,email,password, phone, role_id, birthday,address,joined_date, image)
 				values('".$data['name']."','".$data['code']."','".$data['email']."','".md5($data['pass'])."','".$data['phone_number']."','".$data['role']."','".$data['birthday']."','".$data['address']."','".$data['joined_date']."','".$data['image']."')";
 			$result= $this->user_conn->query($query);
 			
@@ -43,7 +43,7 @@
 
 		function update($data,$id)
 		{
-			$query="UPDATE users SET username='".$data['name']."',code='".$data['code']."',email='".$data['email']."',phone='".$data['phone_number']."',role='".$data['role']."',birthday='".$data['birthday']."',address='".$data['address']."',joined_date='".$data['joined_date']."', image= '".$data['image']."' WHERE id=".$id;
+			$query="UPDATE users SET username='".$data['name']."',code='".$data['code']."',email='".$data['email']."',phone='".$data['phone_number']."',role_id='".$data['role']."',birthday='".$data['birthday']."',address='".$data['address']."',joined_date='".$data['joined_date']."', image= '".$data['image']."' WHERE id=".$id;
 			$result= $this->user_conn->query($query);
 			return $result;
 		}

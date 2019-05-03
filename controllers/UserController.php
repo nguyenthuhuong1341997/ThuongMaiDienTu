@@ -1,5 +1,6 @@
 <?php 
 	include_once 'models/User.php';
+	include_once 'models/Role.php';
 
 	/**
 	 * 
@@ -10,6 +11,7 @@
 		function __construct()
 		{
 			$this->user_model = new User();
+			$this->role_model = new Role();
 		}
 
 		public function index()
@@ -20,16 +22,15 @@
 
 		function create()
 		{
+			$roles= $this->role_model->list();
 			require_once 'views/admin/user/create.php';
 		}
 
 		function store()
 		{
 			$data=$_POST;
-
 			$admin = $this->user_model->insert($data);
-			// print_r($data);
-			// die();
+			
 			if ($admin==1) {
 				setcookie('success','Thêm mới thành công',time()+5);
 			} else {
@@ -41,6 +42,7 @@
 		function edit()
 		{
 			$id=$_GET['id'];
+			$roles= $this->role_model->list();
 			$admin=$this->user_model->find($id);
 			require_once('views/admin/user/edit.php');
 		}

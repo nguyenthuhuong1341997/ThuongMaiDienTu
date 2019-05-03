@@ -13,9 +13,10 @@ $('body').on('click', '.btn-login', function(){
 				password : password
 			},
 			success:(function(response){
+				console.log(response);
 				var data = JSON.parse(response);
 				if(data.success == 'true') {
-					var url1 = '?mod=admin&act=user'; 
+					var url1 = '?mod=admin&act=customer'; 
 					document.location = url1;
 				}else {
 					toastr.error('Sai thông tin đăng nhập.', 'Lỗi!');
