@@ -77,7 +77,7 @@
                      <li><a><i class="fa fa-line-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="?mod=admin&act=statistical&action=revenue">Doanh thu theo năm</a></li>
-                      <li><a href="?mod=admin&act=list">Danh sách nhân viên</a></li>
+                      <li><a href="?mod=admin&act=statistical&action=topProduct">Top sản phẩm bán chạy</a></li>
                     </ul>
                   </li>
                   <?php endif ?>

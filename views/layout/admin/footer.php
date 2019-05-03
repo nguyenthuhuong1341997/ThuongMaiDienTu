@@ -64,6 +64,15 @@
         $('#order-delivery-table').dataTable({
 
         });
+        $('#datatable-product').dataTable({
+            "columnDefs": [
+              { "width": "10px", "targets": 0 },
+              { "width": "100px", "targets": 1 },
+              { "width": "290px", "targets": 2 },
+              { "width": "70px", "targets": 3 },
+              { "width": "70px", "targets": 4 }
+            ],
+        });
        
     </script>
     

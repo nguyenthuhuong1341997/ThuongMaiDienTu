@@ -46,10 +46,9 @@
                   			<a href="?mod=admin&act=product&action=create" class="btn btn-success"><i class="fa fa-plus-circle"></i>Thêm mới</a>
                   		</div>
                   	</div>
-                    <table id="datatable" class="table table-striped table-bordered">
+                    <table id="datatable-product" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                        	<th><input type="checkbox" onclick="toggle(this);" /></th>
                           	<th>ID</th>
                           	<th>Tên sản phẩm</th>
           					        <th>Mô tả</th>
@@ -64,11 +63,10 @@
 			    		
 			      		
             					    		<tr id="<?php echo $value['id']; ?>">
-            					    		<td><input class="checkbox-working-day" value="<?=$value['id']  ?>" type="checkbox" /></td>
             				    			<td><?=$value['id']  ?></td>
             				    			<td><?=$value['name']  ?></td>
             						        <td><?=$value['description']  ?></td>
-            						        <td><?=$value['price']  ?></td>
+            						        <td><?php echo number_format($value['price'], 0) . "&nbsp;₫"; ?></td>
             						        <td><?=$value['parent_name'] ?></td>
             						        <td><?= $value['category_name']  ?></td>
             						        <td>
