@@ -67,6 +67,8 @@
                 <ul class="nav side-menu">
                   <li><a href="?mod=admin&act=user"><i class="fa fa-users"></i> Quản lý nhân viên</a>
                   </li>
+                  <li><a href="?mod=admin&act=customer"><i class="fa fa-users"></i> Quản lý khách hàng</a>
+                  </li>
                   <li><a href="?mod=admin&act=product"><i class="fa fa-book"></i> Quản lý sản phẩm </a>
                   </li>
                   <li><a href="?mod=admin&act=order"><i class="fa fa-truck"></i> Quản lý đơn hàng </a></li>

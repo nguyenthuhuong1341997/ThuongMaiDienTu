@@ -38,7 +38,9 @@
 			include_once('controllers/OrderController.php');
 			$order= new OrderController();	
 			include_once('controllers/StatisticalController.php');
-			$statiscal= new StatisticalController();	
+			$statiscal= new StatisticalController();
+			include_once('controllers/CustomerController.php');
+			$customer= new CustomerController();	
 			switch ($act) {
 				case 'product':
 					switch ($action) {
@@ -110,6 +112,33 @@
 							break;
 						case 'editpassword':
 							$user->editpassword();
+							break;
+						default:
+							# code...
+							break;
+					}
+					break;
+				case 'customer':
+					switch ($action) {
+						case '':
+							$customer->index();
+							break;
+						case 'create':
+							$customer->create();
+							break;
+						case 'store':
+							$customer->store();
+							break;
+						case 'edit':{
+							$customer->edit();
+							break;
+						}
+						case 'update':{
+							$customer->update();
+							break;
+						}
+						case 'delete':
+							$customer->delete();
 							break;
 						default:
 							# code...
