@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Lập trình mạng</title>
+    <title>THƯƠNG MẠI ĐIỆN TỬ</title>
 
     <!-- Bootstrap -->
     <link href="public/admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -69,13 +69,9 @@
                     <li><a href="?mod=admin&act=user"><i class="fa fa-users"></i> Quản lý nhân viên</a>
                   </li>
                   <?php endif ?>
-                  
                   <li><a href="?mod=admin&act=customer"><i class="fa fa-users"></i> Quản lý khách hàng</a>
                   </li>
-                  <?php if ($_SESSION['user']['role_name']=='admin'): ?>
-                    <li><a href="?mod=admin&act=product"><i class="fa fa-book"></i> Quản lý sản phẩm </a>
-                  </li>
-                  <?php endif ?>
+                  <li><a href="?mod=admin&act=product"><i class="fa fa-book"></i> Quản lý sản phẩm </a>
                   <li><a href="?mod=admin&act=order"><i class="fa fa-truck"></i> Quản lý đơn hàng </a></li>
                   <?php if ($_SESSION['user']['role_name']=='admin'): ?>
                      <li><a><i class="fa fa-line-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
