@@ -52,35 +52,33 @@
                         	<th><input type="checkbox" onclick="toggle(this);" /></th>
                           	<th>ID</th>
                           	<th>Tên sản phẩm</th>
-					        <th>Mô tả</th>
-					        <th>Giá</th>
-					        <th>Thời trang</th>
-					        <th>Thể loại</th>
-					        <th></th>
+          					        <th>Mô tả</th>
+          					        <th>Giá</th>
+          					        <th>Thời trang</th>
+          					        <th>Thể loại</th>
+          					        <th>Hành động</th>
                         </tr>
                       </thead>
-
-
                       <tbody>
                         <?php foreach ($products as $key => $value) { ?>
 			    		
 			      		
-					    		<tr id="<?php echo $value['id']; ?>">
-					    		<td><input class="checkbox-working-day" value="<?=$value['id']  ?>" type="checkbox" /></td>
-				    			<td><?=$value['id']  ?></td>
-				    			<td><?=$value['name']  ?></td>
-						        <td><?=$value['description']  ?></td>
-						        <td><?=$value['price']  ?></td>
-						        <td><?=$value['parent_name'] ?></td>
-						        <td><?= $value['category_name']  ?></td>
-						        <td>
-									<a data-target="#myModal-detail" class="btn btn-info infoPro" title="Xem chi tiết sản phẩm" data-toggle="modal" idPro="<?=$value['id']  ?>"><i class="fa fa-eye"></i></a>
+            					    		<tr id="<?php echo $value['id']; ?>">
+            					    		<td><input class="checkbox-working-day" value="<?=$value['id']  ?>" type="checkbox" /></td>
+            				    			<td><?=$value['id']  ?></td>
+            				    			<td><?=$value['name']  ?></td>
+            						        <td><?=$value['description']  ?></td>
+            						        <td><?=$value['price']  ?></td>
+            						        <td><?=$value['parent_name'] ?></td>
+            						        <td><?= $value['category_name']  ?></td>
+            						        <td>
+            									<a data-target="#myModal-detail" class="btn btn-info infoPro" title="Xem chi tiết sản phẩm" data-toggle="modal" idPro="<?=$value['id']  ?>"><i class="fa fa-eye"></i></a>
 
-									<a href="?mod=admin&act=product&action=edit&id=<?= $value['id']?>" class="btn btn-warning" title="Sửa thông tin sản phẩm"><i class="fa fa-edit"></i></a>
-									<a href="?mod=admin&act=product&action=delete&id=<?= $value['id']?>" class="btn btn-danger delete" title="Xóa sản phẩm"><i class="fa fa-trash-o"></i></a>
-						        </td>
-					      	</tr>				
-						<?php } ?>
+            									<a href="?mod=admin&act=product&action=edit&id=<?= $value['id']?>" class="btn btn-warning" title="Sửa thông tin sản phẩm"><i class="fa fa-edit"></i></a>
+            									<a idPro="<?= $value['id'] ?>" class="btn btn-danger delete" title="Xóa sản phẩm"><i class="fa fa-trash-o"></i></a>
+            						        </td>
+            					      	</tr>				
+            						<?php } ?>
                       	</tbody>
                     </table>
                 </div>
@@ -164,54 +162,52 @@
 				<h4 class="modal-title">Thông tin sản phẩm</h4>
 			</div>
 			<div class="modal-body">
-                 <form action="?mod=admin&act=product&action=store_detail" method="POST" role="form" enctype="multipart/form-data">
+        <form action="?mod=admin&act=product&action=store_detail" method="POST" role="form" enctype="multipart/form-data">
 
-                 	<div class="form-group">
-                		<label for="">ID sản phẩm</label>
-                		<input id="inputIdDetail" type="number" class="form-control" name="product_id" readonly="">
-                	</div>
-                	
-                	<div class="form-group">
-                		<label for="">Kích cỡ</label>
-                		<select name="size_id" id="input" class="form-control" required="required">
-                			<?php 
-                				foreach ($sizes as $size) {
-                					
-                			 ?>
-                			<option value="<?= $size['id'] ?>"><?= $size['name'] ?></option>
-                			<?php 
-                				}
-                			 ?>
-                		</select>
-                	</div>
+           	<div class="form-group">
+          		<label for="">ID sản phẩm</label>
+          		<input id="inputIdDetail" type="number" class="form-control" name="product_id" readonly="">
+          	</div>
+          	
+          	<div class="form-group">
+          		<label for="">Kích cỡ</label>
+          		<select name="size_id" id="input" class="form-control" required="required">
+          			<?php 
+          				foreach ($sizes as $size) {
+          					
+          			 ?>
+          			<option value="<?= $size['id'] ?>"><?= $size['name'] ?></option>
+          			<?php 
+          				}
+          			 ?>
+          		</select>
+          	</div>
 
-                	<div class="form-group">
-                		<label for="">Màu sắc</label>
-                		<select name="color_id" id="input" class="form-control" required="required">
-                			<?php 
-                				foreach ($colors as $color) {
-                					
-                			 ?>
-                			<option value="<?= $color['id'] ?>"><?= $color['name'] ?></option>
-                			<?php 
-                				}
-                			 ?>
-                		</select>
-                	</div>
-                
-                	<div class="form-group">
-                		<label for="">Số lượng</label>
-                		<input type="number" class="form-control" name="quantity" placeholder="Nhập số lượng">
-                	</div>
+          	<div class="form-group">
+          		<label for="">Màu sắc</label>
+          		<select name="color_id" id="input" class="form-control" required="required">
+          			<?php 
+          				foreach ($colors as $color) {
+          					
+          			 ?>
+          			<option value="<?= $color['id'] ?>"><?= $color['name'] ?></option>
+          			<?php 
+          				}
+          			 ?>
+          		</select>
+          	</div>
+          
+          	<div class="form-group">
+          		<label for="">Số lượng</label>
+          		<input type="number" class="form-control" name="quantity" placeholder="Nhập số lượng">
+          	</div>
 
-                	 <div class="form-group">
-			            <label for="">Ảnh</label>
-			            <input type="file" class="form-control" id="" name="image" required>
-			        </div>
-                	
-                
-                	<button type="submit" class="btn btn-primary">Thêm</button>
-                </form>                           
+          	 <div class="form-group">
+            <label for="">Ảnh</label>
+            <input type="file" class="form-control" id="" name="image" required>
+        </div>
+        	<button type="submit" class="btn btn-primary">Thêm</button>
+        </form>                           
 		</div>
 	</div>
 </div>	
@@ -233,7 +229,7 @@
 		    		var result = JSON.parse(data);	
 		    		console.log(result);
 		    		$.each(result.data , function(key,value){
-		    			$('#myModal-detail tbody').append('<tr><td style="text-align: center;" >'+value.id+'</td><td style="text-align: center;" >'+value.size_name+'</td><td style="text-align: center;" >'+value.color_name+'</td><td style="text-align: center;" >'+value.quantity+'</td><td style="text-align: center;"><a idProDe="'+value.id+'" data-target="#myModal-detail-product" class="btn btn-info infoProDe" title="Xem chi tiết sản phẩm" data-toggle="modal" ><i class="fa fa-eye"></i></a><a class="btn btn-warning"  href="?mod=admin&act=product&action=edit_detail&id='+value.id+'" ><i class="fa fa-edit"></i></a><a href="?mod=admin&act=product&action=delete_detail&id='+value.id+'" " class="btn btn-danger delete" title="Xóa sản phẩm"><i class="fa fa-trash-o"></i></a></td></tr>');
+		    			$('#myModal-detail tbody').append('<tr><td style="text-align: center;" >'+value.id+'</td><td style="text-align: center;" >'+value.size_name+'</td><td style="text-align: center;" >'+value.color_name+'</td><td style="text-align: center;" >'+value.quantity+'</td><td style="text-align: center;"><a idProDe="'+value.id+'" data-target="#myModal-detail-product" class="btn btn-info infoProDe" title="Xem chi tiết sản phẩm" data-toggle="modal" ><i class="fa fa-eye"></i></a><a class="btn btn-warning"  href="?mod=admin&act=product&action=edit_detail&id='+value.id+'" ><i class="fa fa-edit"></i></a><a idProDe="'+value.id+'" " class="btn btn-danger deleteDetail" title="Xóa sản phẩm"><i class="fa fa-trash-o"></i></a></td></tr>');
 		    		})
 		    		
 
@@ -257,7 +253,64 @@
 		    	}
 		    });
 		});
+
+    $(document).on('click','.delete',function(){
+      var id = $(this).attr('idPro');
+      swal({
+        title: "Bạn có muốn xóa không?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+          if (willDelete) {
+             $.ajax({
+                  type: "POST",
+                  url: "?mod=admin&act=product&action=delete&id="+id,
+                  success: function(res)
+                  {
+                      console.log(res);
+                      location.reload();
+                  }               
+                });
+          }
+      });     
+    });
+    $(document).on('click','.deleteDetail',function(){
+      var id = $(this).attr('idProDe');
+      swal({
+        title: "Bạn có muốn xóa không?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+          if (willDelete) {
+             $.ajax({
+                  type: "POST",
+                  url: "?mod=admin&act=product&action=delete_detail&id="+id,
+                  success: function(res)
+                  {
+                      console.log(res);
+                      location.reload();
+                  }               
+                });
+          }
+      });     
+    });
 		
 		
 	});	
 </script>
+<?php 
+  if (isset($_COOKIE['success'])) {
+    echo '<script type="text/javascript">toastr.success("'.$_COOKIE['success'].'")</script>';
+    // unset($_COOKIE['msg3']);
+  }
+?>
+<?php 
+  if (isset($_COOKIE['error'])) {
+    echo '<script type="text/javascript">toastr.warning("'.$_COOKIE['error'].'")</script>';
+    // unset($_COOKIE['msg3']);
+  }
+?>
