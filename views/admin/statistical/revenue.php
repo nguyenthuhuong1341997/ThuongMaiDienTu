@@ -24,7 +24,10 @@ var dataPoints = [];
 		},
 		axisX: {
 			title: "Tháng",
+			maximum: 12,
+			minimum: 1,
 		},
+		
 		data: [{
 			type: "line",
 			dataPoints : dataPoints,
@@ -59,11 +62,13 @@ var dataPoints = [];
 
 			<form action="?mod=admin&act=statistical&action=revenue" method="POST">
 	            <div class="row" style="margin: 20px 0px;">
-	              	<div class="col-md-3">
+	              	<div class="col-md-1" style="font-size: 18px; margin-top: 10px;">
 	              		<p>Năm</p>
+	              	</div>
+	              	<div class="col-md-3">
 	              		<select class="select2_single form-control" tabindex="-1" name="year">
 		                    	<?php foreach ($years as $key => $value): ?>
-		                    		<?php if ($key == $site_id): ?>
+		                    		<?php if ($value['year'] == $year): ?>
 		                    		<option value="<?= $value['year']?>" selected="true"><?= $value['year']?></option>
 		                    	<?php else: ?>
 		                    		<option value="<?= $value['year']?>"><?= $value['year']?></option>
@@ -74,8 +79,7 @@ var dataPoints = [];
 	              	</div>
 	              	
 	              	<div class="col-md-2">
-	              		<p> </p>
-	              		<button class="btn btn-info" name="revenue" style="margin-top: 19px;">Thống kê</button>
+	              		<button class="btn btn-info" name="revenue">Thống kê</button>
 	              	</div>
 	            </div>
 			</form>
