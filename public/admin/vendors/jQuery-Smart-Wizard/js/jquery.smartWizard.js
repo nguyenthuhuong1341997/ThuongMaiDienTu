@@ -60,10 +60,9 @@ function SmartWizard(target, options) {
         $($this.buttons.next).click(function() {
             var pass= document.getElementById('first-name').value;
             var id =document.getElementsByName('id')[0].value;
-            var path="?mod=admin&act=checkpassword&id=" + id+"&password="+pass;
+            var path="?mod=admin&act=account&action=checkpassword&id=" + id+"&password="+pass;
             
             if(!pass){
-                alert("fdfgsfd");
                 $('#error1').text('Mời bạn điền mật khẩu');
                 // document.getElementById('error1').value="Không được để trông";
             }else{
@@ -72,6 +71,7 @@ function SmartWizard(target, options) {
                     url: path,
                     success: function(res)
                     {
+                        // console.log(res);
                         var data= JSON.parse(res);
 
                         if(!data.status){
@@ -103,7 +103,7 @@ function SmartWizard(target, options) {
                 var newPass= document.getElementById('second-name').value;
                 var repeatNewPass= document.getElementById('third-name').value;
                 var id =document.getElementsByName('id')[0].value;
-                var path2="?mod=admin&act=editpassword&id=" + id+"&newpassword="+newPass;
+                var path2="?mod=admin&act=account&action=editpassword&id=" + id+"&newpassword="+newPass;
                 if(!newPass||!repeatNewPass){
                     $('#error2').text('Mời bạn điền đầy đủ thông tin');
                 
